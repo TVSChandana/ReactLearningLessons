@@ -1,6 +1,6 @@
 import React from 'react';
 
-    const Ninjas=({ninjas})=>{ 
+    const Ninjas=({ninjas,deleteNinjaProp})=>{ 
         const ninjaList=ninjas.map(ninja=>{
             if(ninja.age>20){
             return(
@@ -8,6 +8,7 @@ import React from 'react';
                     <div>Name:{ninja.name}</div>
                     <div>Age:{ninja.age}</div>
                     <div>Belt:{ninja.belt}</div>
+                    <button onClick={ () => {deleteNinjaProp(ninja.id)}}>Delete Ninja</button>       {/* When calling th efunction we should use the prop not the function */}
                </div> 
             )
         }else{

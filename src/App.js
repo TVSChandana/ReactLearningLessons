@@ -17,8 +17,17 @@ let UpdatedNinjas=[...this.state.Ninjas,newlyAddedNinjafromForm]
 this.setState({
   Ninjas:UpdatedNinjas
 })
-  
 }
+
+deleteNinjaFunction = (id) =>{
+  let NinjaListAfterDeletingaNinja = this.state.Ninjas.filter(ninja =>{   //here ninja is the Ninja at a particular time when Iterating
+    return ninja.id !== id //ninja is the Ninja at a particular time
+  });
+  this.setState({ 
+    Ninjas:NinjaListAfterDeletingaNinja
+  })
+  }
+  
 
   render() {
     return (
@@ -26,7 +35,7 @@ this.setState({
       <h1>My First React App</h1>
       <p>welcome bros:)</p>
       
-      <Ninjas ninjas={this.state.Ninjas}/>
+      <Ninjas deleteNinjaProp={this.deleteNinjaFunction} ninjas={this.state.Ninjas}/>
       <AddNinja addxNinja={this.addNinja}/>
       </div>
     );
